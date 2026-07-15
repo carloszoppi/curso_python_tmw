@@ -1,0 +1,62 @@
+[
+    {
+        "cep": "01001-000",
+        "logradouro": "Praça da Sé",
+        "complemento": "lado ímpar",
+        "unidade": "",
+        "bairro": "Sé",
+        "localidade": "São Paulo",
+        "uf": "SP",
+        "estado": "São Paulo",
+        "regiao": "Sudeste",
+        "ibge": "3550308",
+        "gia": "1004",
+        "ddd": "11",
+        "siafi": "7107"
+    },
+    {
+        "cep": "01310-930",
+        "logradouro": "Avenida Paulista",
+        "complemento": "2100",
+        "unidade": "Banco Safra S.A",
+        "bairro": "Bela Vista",
+        "localidade": "São Paulo",
+        "uf": "SP",
+        "estado": "São Paulo",
+        "regiao": "Sudeste",
+        "ibge": "3550308",
+        "gia": "1004",
+        "ddd": "11",
+        "siafi": "7107"
+    },
+    {
+        "cep": "20040-002",
+        "logradouro": "Avenida Rio Branco",
+        "complemento": "de 128 a 144 - lado par",
+        "unidade": "",
+        "bairro": "Centro",
+        "localidade": "Rio de Janeiro",
+        "uf": "RJ",
+        "estado": "Rio de Janeiro",
+        "regiao": "Sudeste",
+        "ibge": "3304557",
+        "gia": "",
+        "ddd": "21",
+        "siafi": "6001"
+    },
+    {
+        "cep": "13331-510",
+        "logradouro": "Rua Robison Gebara Altero",
+        "complemento": "",
+        "unidade": "",
+        "bairro": "Jardim Esplanada",
+        "localidade": "Indaiatuba",
+        "uf": "SP",
+        "estado": "São Paulo",
+        "regiao": "Sudeste",
+        "ibge": "3520509",
+        "gia": "3530",
+        "ddd": "19",
+        "siafi": "6511"
+    }
+]

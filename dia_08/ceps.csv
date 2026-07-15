@@ -1,0 +1,5 @@
+cep,logradouro,complemento,unidade,bairro,localidade,uf,estado,regiao,ibge,gia,ddd,siafi
+01001-000,Praça da Sé,lado ímpar,,Sé,São Paulo,SP,São Paulo,Sudeste,3550308,1004,11,7107
+01310-930,Avenida Paulista,2100,Banco Safra S.A,Bela Vista,São Paulo,SP,São Paulo,Sudeste,3550308,1004,11,7107
+20040-002,Avenida Rio Branco,de 128 a 144 - lado par,,Centro,Rio de Janeiro,RJ,Rio de Janeiro,Sudeste,3304557,,21,6001
+13331-510,Rua Robison Gebara Altero,,,Jardim Esplanada,Indaiatuba,SP,São Paulo,Sudeste,3520509,3530,19,6511
