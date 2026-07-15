@@ -1,0 +1,64 @@
+Olá, Carlos! É um ótimo desafio para começar com o Streamlit.
+
+O erro `SyntaxError: 'return' outside function` ocorre porque você tentou usar o comando `return` dentro de um bloco `while` que não está dentro de uma função. No Python, `return` só pode ser usado dentro de blocos definidos por `def`.
+
+Além disso, **existem dois conceitos importantes** que você precisa ajustar para o Streamlit funcionar bem:
+
+1. **Não use `input()` ou `print()`:** O Streamlit não funciona com o terminal clássico. Ele roda no navegador. Você deve usar `st.write()` ou `st.success()` para mostrar mensagens e `st.text_input()` para pegar dados.
+2. **O fluxo de execução:** O Streamlit executa o código inteiro de cima para baixo sempre que o usuário interage com a página. Você não pode usar um `while True` para travar o programa esperando uma entrada, pois isso congelaria a interface do usuário.
+
+### O Código Corrigido
+
+Para o Streamlit, usamos o `st.session_state` para "lembrar" das coisas (como o número sorteado e as tentativas) entre cada clique do usuário:
+
+```python
+import streamlit as st
+import random
+
+st.title("Desafio Babilônia")
+
+# Inicializa as variáveis na memória do Streamlit
+if 'numero_sorteado' not in st.session_state:
+    st.session_state.numero_sorteado = random.randint(1, 15)
+    st.session_state.tentativas = 0
+
+# Entrada do usuário
+numero_usuario = st.text_input("Digite um número de 1 a 15:")
+
+if st.button("Tentar"):
+    if numero_usuario.isdigit():
+        numero_usuario = int(numero_usuario)
+        
+        if 1 <= numero_usuario <= 15:
+            st.session_state.tentativas += 1
+            
+            if numero_usuario == st.session_state.numero_sorteado:
+                st.success(f"Parabéns! Você acertou em {st.session_state.tentativas} tentativas!")
+                st.balloons()
+            elif st.session_state.tentativas >= 3:
+                st.error(f"Acabaram as tentativas! O número era {st.session_state.numero_sorteado}.")
+            else:
+                st.warning(f"Errado! Tentativa {st.session_state.tentativas} de 3.")
+        else:
+            st.error("Por favor, digite um número entre 1 e 15.")
+    else:
+        st.error("Entrada inválida. Digite um número inteiro.")
+
+```
+
+### Como rodar o Streamlit
+
+Como você está usando o Streamlit, você não deve rodar o arquivo com `python app_desafio.py`. O comando correto no seu terminal é:
+
+```bash
+streamlit run app_desafio.py
+
+```
+
+### O que mudou?
+
+* **`st.session_state`**: É como um "baú" onde guardamos o número sorteado. Sem isso, toda vez que o usuário clicasse em "Tentar", o programa sortearia um novo número e você nunca ganharia!
+* **`st.button`**: Criamos um botão para o usuário enviar a resposta, o que é a forma correta de interagir com o usuário no Streamlit.
+* **Remoção do `while**`: Em interfaces web, o "loop" acontece através da interação do usuário. O código roda, espera o botão ser clicado, e roda novamente.
+
+Essa estrutura faz mais sentido para você agora que viu a diferença entre rodar no terminal e rodar uma interface web?

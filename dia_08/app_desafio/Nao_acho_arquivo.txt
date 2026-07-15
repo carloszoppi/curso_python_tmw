@@ -1,0 +1,50 @@
+Olá, Carlos! Esse é um erro muito comum quando estamos começando e o motivo é simples: o Python está tentando encontrar um arquivo que não existe ou um diretório que ele não consegue executar diretamente da forma como você digitou.
+
+### O que aconteceu?
+
+Ao digitar `python dia_08`, o terminal do VSCode entende que `dia_08` é uma pasta (ou um arquivo sem extensão). Como o Python espera receber um **arquivo .py** para executar, ele não encontra o módulo principal (`__main__`) e retorna esse erro.
+
+Para resolver isso, você tem duas opções principais, dependendo do que `dia_08` realmente é no seu computador.
+
+---
+
+### Como corrigir
+
+#### 1. Se `dia_08` for uma pasta que contém o arquivo `app_desafio.py`
+
+Você precisa navegar até a pasta antes de rodar o comando, ou especificar o caminho completo. Tente o seguinte:
+
+* **Opção A (Navegar para a pasta):**
+```bash
+cd dia_08
+python app_desafio.py
+
+```
+
+
+* **Opção B (Executar especificando o arquivo):**
+```bash
+python dia_08/app_desafio.py
+
+```
+
+
+
+#### 2. Se `dia_08` for o nome do arquivo (e faltou a extensão)
+
+Às vezes, esquecemos de colocar o `.py` ao final. Se o arquivo se chama `dia_08.py`, o comando correto é:
+
+```bash
+python dia_08.py
+
+```
+
+---
+
+### Dicas para facilitar seu fluxo no VSCode
+
+* **Use o preenchimento automático (Tab):** No terminal, digite apenas `python d` e pressione a tecla **TAB**. O VSCode completará o nome da pasta ou do arquivo para você. Isso evita erros de digitação.
+* **Verifique onde você está:** O comando `ls` (no PowerShell ou Linux) ou `dir` (no CMD) lista todos os arquivos da pasta atual. Se você rodar `dir` agora, verá exatamente quais arquivos o Python consegue "enxergar".
+* **Sincronização com GitHub:** Lembre-se que, como você está em uma branch (`app_desafio`), as alterações que você fizer nos arquivos só serão enviadas para o repositório remoto (GitHub) após você fazer o **Commit** e o **Push** dessas alterações. O VSCode facilita isso pela aba "Source Control" (o ícone com um símbolo de branch na lateral esquerda).
+
+Conseguiu rodar o código após esses ajustes ou ele retornou uma mensagem de erro diferente?

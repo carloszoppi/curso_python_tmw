@@ -1,0 +1,22 @@
+Quando você roda o comando `streamlit run app_desafio.py`, o terminal fica "preso" executando o servidor do Streamlit. Para retomar o controle do terminal, você tem duas formas principais:
+
+### 1. O atalho de teclado (Mais comum)
+
+Enquanto o terminal estiver selecionado e o Streamlit estiver rodando, pressione simultaneamente as teclas:
+**`Ctrl` + `C**`
+
+Isso enviará um sinal de interrupção para o processo, forçando o Streamlit a parar. Você verá o terminal liberar o prompt (voltando a mostrar `PS C:\... >`) logo em seguida.
+
+### 2. Abrir um novo terminal no VSCode
+
+Se você quiser continuar rodando o Streamlit e, ao mesmo tempo, ter um terminal livre para rodar outros comandos (como subir algo para o GitHub), você não precisa fechar o Streamlit:
+
+* No VSCode, olhe para a parte superior do painel do Terminal.
+* Você verá um ícone de **`+`** (ou um menu suspenso chamado "Terminal").
+* Clique no **`+`** para abrir uma nova instância do terminal.
+
+Agora você terá dois terminais rodando paralelamente: um dedicado ao seu site (Streamlit) e outro livre para você navegar entre pastas e usar comandos do Git.
+
+> **Dica de ouro:** Sempre que você fizer alterações no código do `app_desafio.py` e salvar o arquivo, o Streamlit exibirá um botão **"Rerun"** no canto superior direito do seu navegador. Basta clicar nele para ver as mudanças, sem precisar fechar e abrir o terminal novamente!
+
+Ficou mais claro como gerenciar as janelas do terminal agora?

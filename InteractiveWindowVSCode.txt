@@ -1,0 +1,32 @@
+No VS Code, o Interactive Window é um recurso muito útil para rodar código de forma interativa, parecido com um Jupyter Notebook. Ele é bastante usado em Python, mas também pode ser aproveitado em outras linguagens com suporte. Aqui vai um guia rápido para você começar
+
+### 🚀 Como usar o Interactive no VS Code
+1. Instale a extensão necessária  
+   - Para Python, instale a extensão Python e também a Jupyter no VS Code Marketplace.
+
+2. Abra um arquivo Python (.py)  
+   - Escreva seu código normalmente.
+
+3. Use o comando `# %%`  
+   - Coloque `# %%` no início de um bloco de código. Isso transforma aquele trecho em uma célula interativa.
+   ```python
+   # %%
+   x = 10
+   y = 20
+   print(x + y)
+   ```
+
+4. Execute a célula  
+   - Clique em Run Cell que aparece acima do bloco, ou use o atalho
+     - Ctrl+Enter → roda a célula atual  
+     - Shift+Enter → roda a célula e passa para a próxima
+
+5. Interactive Window  
+   - O resultado aparece em uma janela interativa dentro do VS Code, onde você pode continuar rodando células, visualizar gráficos (com matplotlib, por exemplo) e até manipular variáveis como faria em um notebook.
+
+### 💡 Dicas extras
+- Você pode abrir diretamente um Jupyter Notebook (.ipynb) no VS Code e usar o mesmo ambiente interativo.  
+- Se quiser que o VS Code sempre abra no modo interativo, vá em Command Palette (Ctrl+Shift+P) e procure por Python Create Interactive Window.  
+- É possível configurar o kernel (ambiente Python) que será usado, escolhendo entre diferentes ambientes virtuais ou conda.
+
+Quer que eu te mostre um exemplo prático de como rodar gráficos com `matplotlib` no Interactive Window
