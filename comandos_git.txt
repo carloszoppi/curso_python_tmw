@@ -131,6 +131,22 @@ precisa atualizar a main local: git pull origin main
 O PULL recebe as coisas da origin
 O PUSH envia as coisas para origin
 
+DENTRO DO VSCODE
+Quando alterar o arquivo no VSCode ele vai aparecer, após salvar o arquivo,
+no canto esquerdo em Controle de Código-Fonte o número 1 mostrando que houve 
+uma alteração. Ao clicar vai aparecer o nome do arquivo com um M na frente.
+Este M é de Modify. 
+É possível cancelar a modificação, além de outros botões.
+
+Na parte superior vai aparecer Commit ou Atualização Ao clicar ele 
+vai perguntar se que que atualize a origin. É só confirmar
+que o git hub remoto vai ficar atualizado.
+
+Observação: o terminal que está sendo utilizado é o powershell. Ele pode ser mudado
+clicando ao lado do botão + e escolher git bash para utilizar 
+os comandos git normalmente.
+
+
 
 
 
