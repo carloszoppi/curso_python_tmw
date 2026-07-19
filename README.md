@@ -8,6 +8,10 @@ Há também a criação de aplicativo com o streamlit.
 
 Muito legal.
 
+https://youtube.com/teomewhy
+
+
+
 
 
 
