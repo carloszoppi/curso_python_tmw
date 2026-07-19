@@ -4,5 +4,11 @@
 
 Curso muito bom.
 
+Há também a criação de aplicativo com o streamlit.
+
+Muito legal.
+
+
+
 
 
