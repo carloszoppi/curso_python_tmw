@@ -30,3 +30,5 @@ if st.button("Tentar"):
     else:
         st.error("Entrada inválida. Digite um número inteiro.")
         
+
+        st.success

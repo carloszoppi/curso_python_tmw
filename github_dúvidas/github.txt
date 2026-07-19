@@ -1,0 +1,50 @@
+Sim, para salvar as alterações da sua branch secundária (ou de feature) na main, você precisa fazer o merge ou um pull request (PR). [1] 
+O fluxo ideal para transferir suas alterações e novos arquivos com segurança é o seguinte:
+
+   1. Commit: Certifique-se de que todos os seus arquivos e alterações já foram "comitados" na sua branch secundária.
+   2. Atualize a main: Vá para a branch main e puxe as últimas atualizações para evitar conflitos.
+   3. Merge: Traga as alterações da sua branch secundária para a main (usando merge ou abrindo um Pull Request caso use plataformas como o GitHub). [2, 3, 4] 
+
+Para entender a fundo como realizar esses comandos com segurança na prática, recomendo consultar o [Guia de Git oficial](https://git-scm.com/docs/gittutorial) ou a documentação de [Noções Básicas de Git](https://docs.github.com/pt/get-started/using-git/about-git).
+Para que eu possa te orientar com o passo a passo exato, me informe:
+
+* Qual plataforma você está usando (GitHub, GitLab, Bitbucket ou apenas o Git local no terminal)?
+* Os novos arquivos já estão rastreados (com git add) ou ainda estão soltos?
+
+
+
+
+
+
+Não, "puxar as últimas atualizações" significa algo diferente.
+Neste passo, você baixa as alterações que outras pessoas enviaram para o GitHub enquanto você trabalhava na sua máquina. Isso evita conflitos de código. [1, 2] 
+O comando usado para isso é o git pull origin main. [3] 
+O processo que você descreveu (fazer o git status, git add e git commit) serve para salvar as suas próprias alterações. Você deve fazer isso na sua branch secundária antes de ir para a main. [4, 5, 6, 7] 
+## O fluxo correto passo a passo
+
+   1. Salve o seu trabalho na sua branch secundária:
+   
+   git status
+   git add .
+   git commit -m "sua mensagem aqui"
+   
+   2. Mude para a branch main:
+   
+   git checkout main
+   
+   3. Puxe as atualizações do GitHub (o "Item 2"):
+   
+   git pull origin main
+   
+   4. Faça o merge da sua branch:
+   
+   git merge nome-da-sua-branch-secundaria
+   
+   5. Envie tudo de volta para o GitHub:
+   
+   git push origin main
+   
+   [8, 9, 10, 11, 12] 
+
+Se você preferir, eu posso te explicar como fazer esse processo direto pelo site do GitHub usando um Pull Request, que é o método mais seguro e comum em equipes.
+

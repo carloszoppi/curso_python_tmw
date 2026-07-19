@@ -59,6 +59,9 @@ import json       # para salvar os dados em um arquivo JSON
                   # para tratar json de listas/dicionários para arquivos e vice-versa
 from tqdm import tqdm  # para mostrar uma barra de progresso durante o loop
 
+import pandas as pd  # para manipular os dados em formato de tabela, caso queira salvar em CSV ou Excel
+
+
 ceps = ["01001000", "01310930", "20040002", "13331510"]  # lista de CEPs para consultar
 
 url = "https://viacep.com.br/ws/{cep}/json/"   #endereço de onde vou fazer a requisição, que é o site do ViaCEP, que é um serviço gratuito de consulta de CEPs.
@@ -70,6 +73,12 @@ for i in tqdm(ceps):
         dados.append(resposta.json()) # adiciona o resultado da requisição em formato de dicionário na lista de dados.
 
 dados
+
+# %%
+
+dataset = pd.DataFrame(dados)  # transforma a lista de dicionários em um DataFrame do pandas, que é uma estrutura de dados em formato de tabela, com colunas e linhas.
+dataset  # mostra o DataFrame, que é uma tabela com os dados dos CEPs consultados.
+dataset.to_csv("ceps.csv", index=False, encoding="utf-8")  # salva o DataFrame em um arquivo CSV, sem o índice, e com codificação UTF-8 para evitar problemas com acentuação.
 
 # %%
 
@@ -97,3 +106,6 @@ with open(caminho_salvamento, "w", encoding="utf-8") as open_file:
 
 # %%
 
+# para saber onde encontrar as APIs há no github
+# https://github.com/public-apis/public-apis
+# https://free-apis.github.io/#/

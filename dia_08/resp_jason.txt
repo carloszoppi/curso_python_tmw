@@ -1,0 +1,39 @@
+O erro apresentado na imagem é exatamente o ValueError: If using all scalar values, you must pass an index.
+## O que está acontecendo?
+O Pandas tenta transformar os dados que ele recebe do ViaCEP em uma tabela (DataFrame) com linhas e colunas. No entanto, o ViaCEP devolve apenas um dicionário simples com valores únicos (escalares) para o CEP 13331510 (que é de Indaiatuba, SP), parecido com isto:
+
+{"cep": "13331-510", "logradouro": "Rua Humaitá", "bairro": "Centro", ...}
+
+Como o dicionário não possui uma lista de elementos, o Pandas não sabe se deve criar uma linha única ou se deve estruturar os dados de outra forma. Por isso, ele quebra e pede para você definir um "index" (índice).
+## Como corrigir?
+Para resolver isso de forma simples e rápida, você deve envolver o resp.json() dentro de colchetes [ ]. Isso transforma o dicionário em uma lista de um único dicionário, permitindo que o Pandas crie uma linha na tabela perfeitamente.
+Altere a linha do erro no seu código:
+❌ Como está agora:
+
+data = pd.DataFrame(resp.json())
+
+can Como deve ficar:
+
+data = pd.DataFrame([resp.json()])
+
+Basta salvar o arquivo no VS Code e clicar em Rerun na página do Streamlit. O erro sumirá e os dados do CEP aparecerão formatados na tela!
+Se quiser, posso te mostrar como ocultar colunas desnecessárias do resultado (como o código IBGE) para deixar a sua tabela mais limpa.
+
+
+
+
+Para sair ou liberar o terminal do VS Code que ficou travado rodando o Streamlit, você pode usar um dos seguintes atalhos diretamente no teclado:
+## 1. Parar a execução do Streamlit (Recomendado)
+Clique dentro da janela do terminal para garantir que ela está selecionada e aperte:
+
+* Ctrl + C
+
+Isso força a interrupção do código atual e devolve o controle da linha de comando para você digitar o que quiser.
+## 2. Fechar ou Reiniciar o terminal atual
+Se o Ctrl + C não funcionar porque o terminal travou completamente:
+
+* Lixeira (Kill Terminal): No canto superior direito do painel do terminal, clique no ícone de uma Lixeira. Isso encerra essa sessão travada de vez.
+* Sinal de Mais (+): Clique no ícone de + ao lado da lixeira para abrir um novo terminal limpo e pronto para uso.
+
+Você prefere saber como rodar o Streamlit em segundo plano para não travar o terminal, ou quer ajuda para criar um atalho de reinicialização automática?
+
