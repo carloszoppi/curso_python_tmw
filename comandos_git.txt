@@ -1,0 +1,170 @@
+git initgitgit init . -> cria um repositorio git na pasta atual
+git status  -> mostra o status do trabalho (de cada arquivo)
+git add nome_arquivo -> adiciona arquivo para ser commitado
+git commit -m "msg" -> faz commit do que estava para ser comitado
+git log -> mostra todo histórico de commit
+git diff -> para saber o que tem de diferença do estado atual do arquivo em relação ao commit anterior
+	o @@ -2,4 + 2,4@@ significa que tem coisa que foi excluída e coisa que foi adicionada;
+	o que aparece em verde precedido de um sinal de + é o que foi adicionado;
+git diff . -> mostra arquivo por arquivo o que mudou
+
+q ctrl - se travar (aparece ":")
+
+Se estiver trabalhando com vários arquivos e der um git add . 
+ele vai levar para ser comitado todos os arquivos (ou seja, todos vão para a fase de "stage"). 
+Se fizer isso por engano, por exemplo, porque quer comitar separado para dar checkpoints 
+com nome diferente, como fazer para excluir o arquivo que não deveria
+estar para ser comitado?
+- usa o git reset "comandos_bash.txt (ou seja git reset e o nome do arquivo)
+- quando usa este comando o arquivo agora aparece na fase de "unstage".
+- com um novo git status vai aparecer em vermelho o arquivo que foi modificado e não foi para fase de stage.
+
+
+Ramificação - branch
+git checkout -b nomedabranch     (o -b é porque ainda não existe a branch)
+muda agora da branch main para a secundária.
+É como se tivessemos copiado o projeto e salvo em uma outra pasta e agora
+estamos trabalhando dentro desta outra pasta.
+
+git branch mostra todas as branchs do projeto e mostra em verde a branch que estamos trabalhando
+
+para voltar para a branch main:
+->git checkout main
+
+para voltar para a secundária
+->git checkout secundaria
+
+Para comitar um novo arquivo criado na branch
+git add nomedoarquivo
+
+
+COMANDO MERGE
+
+$ git merge secundaria (porque eujá estou na main)
+traz todas as alterações, não o arquivo.
+nada acontece na branch secundária. Ela fica a mesma
+
+
+DELETAR UMA BRANCH
+git branch -D nomedabranch
+Eu não posso estar, por exemplo, na branch secundária e querer deletar ela
+Tenho que estar em outra branch para fazer isso.
+
+Uma das funções de deletar uma branch é manter o ambiente de trabalho limpo.
+Uma vez que já foi feito a merge, não há porque manter a branch.
+
+
+
+COMO IR DO LOCAL PARA O REMOTO/ ORIGIN
+Github
+
+1 -Ir para a página inicial do github (ou clicar no gato)
+2 - Clicar em NEW (abaixo do gato)
+3 - O template é uma estrutura de pastas e arquivos (não vamos usar isso neste momento)
+4 - Criar o repositório dentro do seu login (owner)
+5 - Dar o nome do repositório
+6 - Fazer uma descrição
+7 - Repositório - definir público ou privado.
+8 - Iniciar o repositório com o README.
+Obs. Se for deixar o repositorio mais simples possível não clicar em README, gitignore, licence.
+9 - Clicar em Create Repository
+10 - Quick setup - HTTPS (pede para fazer login quando for clonar o repositório ou mandar alterações
+porque é necessário garantir que ninguém fique mexendo no repositório sem autorização) 
+ou SSH
+11 - Ou nós vamos criar um repositório novo ou nós vamos fazer um
+pushing do repositório existente. Como nós já criamos o repositório vamos
+utilizar o push an existing repository from the command line.
+11.1 tem que copiar a primeira linha do código
+11.2 vai na pasta que possui os arquivos que queremos enviar para o 
+repositório no github
+11.3 abre i gitbash e vai até o local da pasta que queremos clonar
+11.4 é só usar o comando cd endereço/nomeda pasta
+11.5 quando estiver no  gitbash no endereço correto, pega o que foi copiado
+no item 11.1 e copia no git bash e enter
+11.5.1 - o git remote vai adicionar a origin a pasta que queremos, ou seja, ela 
+vai lá para o repositório no github. Estamos vinculando o repositório
+local com o repositório na nuvem.
+obs. o enderço no gitbash deve ser (main) e não master. Se for master é porque nós 
+criamos algo errado no git logo no início. Ver a primeira aula do curso no youtube.
+11.6 - Ao clicar enter não acontece nada (a não ser que dê algum erro)
+11.7 - Agora deveria fazer o git branch -M main (que é a linha abaixo do 
+de onde foi copiado o 11.1) só que se já estamos na "main" não precisa fazer isso
+11.8 - Agora segindo o mesmo local onde foi copiado o 11.1, copiar 
+o git push -u origin main e colar no git bash.
+Este comando está enviado para a origin as alterações que aconteceram na branch main
+O push envia para a origin o que está na main
+11.9 - Ao dar enter, aparece para fazer a autenticação do github
+11.10 - NA tela do gitbash vai aparecer que ele fez a autenticação e enviou tudo que 
+estava na main para o repositório.
+11.11 - Voltando na tela do github e dar um F5 ele atualiza o repositório 
+e o que foi enviado aparece na tela.
+Cada vez que fizer alguma alteração e quiser enviar para o repositório
+tem que fazer o push manual.
+HELP - se fizer algo errado, no git bash digitar git remote help
+ou git --help para aparecer a documentação do git
+OBservação - usando o SSH não precisa de autenticação
+Resumindo - nós fizemos o link do repositório local com o repositório
+remoto, e você tem que dizer quando quer atualizar utilizando 
+o push
+12 - Para criar o README é preciso ir no terminal git bash e usar o 
+comando touch README.md  
+Ele vai criar um arquivo vazio.
+13 - Agora vai para o arquivo README onde ele foi salvo e abre com 
+editor de bloco de notas
+14 - Agora precisa mandar para o git local git status, git add , git commit -m
+15 - Depois mandamos para o remoto usando o git push origin main
+16 - Depois do push tem que dar o f5 para atualizar o github, então vai aparecer as
+alterações.
+17 - Geralmente nós não trabalhamos na main. Trabalhamos na branch. Logo, temos
+que enviar a branch para o remoto usando o git push origin nomedabranch
+18 - Depois que você enviou a branch para o remoto e atualizou no F5, 
+tem que fazer o compare&pull request.
+19 - Clicar no botão create a pull request que aparece: criar o pull request não significa
+o MERGE, siginifica que você está sinalizando que quer fazer o MERGE.
+20 - Tem que verificar se há algum conflito na MERGE (há um texto na janela)
+21 - Faz o pull request e confirma.
+22 - O merge é feito. Pode deletar a branch que foi mergeada.
+23 - O clico é trabalhar na branch fazer o merge e depois subir.
+MAs como foi feito o puh para origin da branch e o merge na origin,
+precisa atualizar a main local: git pull origin main
+
+O PULL recebe as coisas da origin
+O PUSH envia as coisas para origin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
