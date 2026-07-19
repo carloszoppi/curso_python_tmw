@@ -1,0 +1,85 @@
+Visual Studio Code
+
+No VSCode quando fazermos alguma alteração:
+
+- o código/texto alterado fica com uma barra lateral colorida indicando 
+o que foi alterado.
+- no nome do arquivo acima do código/texto que está sendo modificado fica
+uma bolinha branca indicando que a alteração não foi salda.
+Se quiser salvar deve usar o CRT+S.
+Após salvar, o nome do arquivo no topo da tela fica com um X indicando que foi salvo. Ou seja
+passa da bolinha branca para X.
+- Após salvar a barra lateral das alterações ainda fica aparente.
+- O nome do arquivo na barra de menu lateral fica diferente. Ele muda de 
+cor e aparece a letra M, indicando Modifi, ou seja, se colocar no terminal 
+bash o $git status, vai aparece o que foi modificado.
+Ou seja, a integração do VSCode com o stado do arquivo no GitHub.
+
+-No lado esquerdo, abaixo da lupa, há o Controle de Código, aparece o número
+dois, ou seja, temos duas alterações pendentes.
+
+
+Branch
+No canto inferior esquerdo o VSCode já indica em qual branch nós estamos
+e se ela está atualizada. 
+
+
+GIT FLOW
+Ao iniciar um novo projeto devemos criar uma brach nova chamada 
+develop. Esta branch é a cópia da main. Não trabalhamo direto na main,
+trabalhamos na develop e depois atualizamos a main. 
+Durante o trabalho da devolop podemos abrir outras branchs que vão depois
+ser consolidadas na develop. 
+Exite um padrão para criação de nomes das branchs. Veja Conventional
+Commits Pattern.
+
+https://medium.com/prolog-app/nossos-padr%C3%B5es-de-nomenclatura-para-branches-e-commits-fade8fd17106
+
+https://medium.com/linkapi-solutions/conventional-commits-pattern-3778d1a1e657
+
+https://www.bavaga.com/blog/2025/01/27/my-ultimate-conventional-commit-types-cheatsheet/
+
+
+Para ter certeza que a develop local está atualizada com a develop remota,
+ao iniciar novo dia de trabalho é prudente fazer o 
+$ git pull origin develop
+
+ou seja, vamos começar o trabalho da maneira mais atualizada possível.
+
+
+O que o GIT FETCH faz?
+O git fetch baixa os metadados e os commits mais recentes do seu repositório remoto (como o GitHub ou GitLab) 
+para o seu computador, mas sem alterar o seu código atual. Ele permite visualizar o que a equipe fez de novo de forma segura.
+
+Como funciona na prática?Quando você roda o comando git fetch (geralmente seguido pelo nome do remoto, como git fetch origin), 
+o Git:Conecta-se ao repositório remoto.Baixa todas as novas ramificações (branches) e commits que foram adicionados desde a sua 
+última sincronização.Atualiza as referências de rastreamento remoto (ex: origin/main), deixando-as salvas em cache na sua 
+máquina local.O grande diferencial do fetch é que ele não afeta os arquivos nos quais você está trabalhando. 
+A sua área de trabalho (working directory) e o seu branch atual continuam exatamente como estavam, intocados.
+
+Por que usar o fetch?Ele é a ferramenta ideal para inspeção. Depois de usá-lo, você pode verificar o que os outros membros 
+da equipe alteraram antes de decidir integrar isso ao seu projeto.Visualizar alterações: Você pode usar git diff origin/main 
+para comparar o seu branch local com o do servidor.Planejamento seguro: É ótimo para evitar surpresas (como conflitos inesperados) 
+que aconteceriam se você fizesse um git pull diretamente.
+
+A diferença entre git fetch e git pull: A diferença é simples, mas crucial 
+na rotina de desenvolvimento:O git fetch apenas baixa as informações do servidor para você inspecionar.O git pull equivale a 
+executar um git fetch e, logo em seguida, um git merge (ou rebase), alterando imediatamente o seu código local para incorporar as mudanças.
+
+NA PRATICA:
+Quando damos o git branch só vai aparecer a main e não vai aparecer a develop.
+O git fetch puxa a develop para o cache, mas ela ainda não vai aparecer
+se der outro git branch. 
+Como sabemos que existe a develop, é preciso dar um git checkout develop:
+$ git checkout develop - veja que não tem o -b porque já puxou ela.
+Agora, você está na develop e se der o git branch ela vai aparecer (está como 
+um bolinha na frente do nome)
+
+Lembre-se que estamos na local. Então, antes de começar a trabalhar, devemos fazer um
+$ git pull origin develop   - para garantir que estamos com a última versão que subiu
+(lembre-se que pode haver várias pessoas trabalhando em equipe)
+
+
+
+
+
