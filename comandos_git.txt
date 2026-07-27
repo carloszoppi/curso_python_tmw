@@ -147,6 +147,54 @@ clicando ao lado do botão + e escolher git bash para utilizar
 os comandos git normalmente.
 
 
+####gitignore
+
+Arquivos binários não são lidos pelo git, ou seja, pptx e xlsm. Ou seja,
+não faz sentido versionar este tipo de arquivo. 
+
+Então para não se perder, é importante usar o arquivo gitignore:
+1 - abrir new file e nomear como .gitignore
+2 - digitar o nome do arquivoque precisa ser ignorado (na barra lateral direita
+onde estão os nomes dos arquivos ele vai mudar de cor)
+3 - se houver mais que um arquivo, então ele pode ser escrito neste mesmo arquivo
+gitignore
+
+Porém, se houver muitos arquivos com a mesma extensão é mais fácil utilizar:
+*.pptx (por exemplo para arquivos com power point)
+
+Pensando agora no contexto, se criar uma pasta com o nome dados para xlsm ou por 
+exemplo apresentação para os pptx, a fim de deixar organizado, quando utilizaro gitignore
+e fizer um push para o repositório remoto, esta pasta dados ou apresentação não vai 
+aparecer porque o git considera que é uma pasta vazia porque ele não entende
+os arquivos pptx e xlsx, csv ou xls. 
+Ou seja, estes arquivos estarão apenas no repostório local.
+Mas, se houver um trabalho em equipe e for impotante deixar claro onde devem 
+ser salvas as apresentações, precisamos utilizar o arquivo git keep:
+1 - dentro da pasta apresentação cria um novo arquivo .gitkeep
+2 - este arquivo vai fazer com que a pasta seja levada para o repostiório remoto 
+quando for feito o push.
+3 - ele vai continuar uma pasta vazia no repositorio remoto (na verdade só vai ter 
+o arquivo .gitkeep)
+
+Resumindo: não se faz versionamento de dados no git porque cada vez que abre uma
+branch ele iria clonar todos os dados, que em alguns casos podem ser gigantes, o 
+tornaria inviável.
+Porém, todo trabalho de analista ou ciência de dados possui arquivos que não são 
+texto, e por isso, geralmente há uma pasta dados além das demais. Estes dados estão
+salvos localmente, mas quando vamos fazer um push para o repositorio remoto, é conveniente
+que esta estrutura de pastas seja toda salva no repositorio remoto.
+Então é usado o gitignore e o gitkeep. 
+O que você pode fazer é no README, por exemplo, deixar as instruções de como 
+o usuário pode acessar os arquivos pptx ou xlsx.
+
+
+
+
+
+
+
+
+
 
 
 
